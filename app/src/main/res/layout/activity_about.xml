@@ -47,7 +47,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="#CB4042"
                 android:textSize="20sp"
-                android:text="V1.0.0"
+                android:text="V1.0.1"
                 android:layout_gravity="center"
                 />
 
@@ -130,11 +130,11 @@
                 />
 
             <ImageView
-                android:layout_marginTop="-30dp"
+                android:layout_marginTop="20dp"
                 android:layout_gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/alipay"/>
+                android:src="@drawable/alipay_1"/>
 
 
         </LinearLayout>

@@ -157,7 +157,7 @@ public class CategoryActivity extends AppCompatActivity {
                 delPosition = position;
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(CategoryActivity.this);
-                builder.setIcon(R.drawable.head2);
+                builder.setIcon(R.drawable.flag4_2);
                 builder.setTitle("凡事预则立，不预则废");
                 builder.setMessage("是否要删除该条FLAG？");
                 builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {

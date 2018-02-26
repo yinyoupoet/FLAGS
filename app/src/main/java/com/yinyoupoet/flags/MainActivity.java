@@ -30,12 +30,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-import com.yydcdut.sdlv.Menu;
-import com.yydcdut.sdlv.MenuItem;
-import com.yydcdut.sdlv.SlideAndDragListView;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collections;
 import java.util.Date;
 import java.util.LinkedList;
@@ -109,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
         toolbar = findViewById(R.id.toolbar_main);
         toolbar.setTitle("FLAGS");
         setSupportActionBar(toolbar);
-        toolbar.setNavigationIcon(R.drawable.flag4_1);
+        toolbar.setNavigationIcon(R.drawable.flag4_2);
 
         toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener(){
             @Override
@@ -210,7 +208,7 @@ public class MainActivity extends AppCompatActivity {
                 delPosition = position;
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-                builder.setIcon(R.drawable.head2);
+                builder.setIcon(R.drawable.flag4_2);
                 builder.setTitle("凡事预则立，不预则废");
                 builder.setMessage("是否要删除该条FLAG？");
                 builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
@@ -349,24 +347,27 @@ public class MainActivity extends AppCompatActivity {
 
     //使用引导
     private void addGuide(){
-        doInsert("教程一","点击右下角加号可以编写新Flag，长按可以删除Flag");
-        doInsert("教程二","首页列表根据最近一次更新的时间进行排序");
-        doInsert("教程三","可以插入图片，且保存按钮很鸡肋，不点击也会自动保存的");
-        doInsert("教程四","首页下拉可以看到你所有Flag的状态哦");
-        doInsert("教程五","想联系作者，点击\"关于\"试试看吧");
-        doInsert("教程六","删除所有教程，开始你的立Flag之旅吧");
+        Date thisDate = new Date();
+        doInsert("教程一","点击右下角加号可以编写新Flag，长按可以删除Flag",thisDate,0);
+        doInsert("教程二","首页列表根据最近一次更新的时间进行排序",thisDate,-1);
+        doInsert("教程三","可以插入图片，且保存按钮很鸡肋，不点击也会自动保存的",thisDate,-2);
+        doInsert("教程四","首页下拉可以看到你所有Flag的状态哦",thisDate,-3);
+        doInsert("教程五","想联系作者，点击\"关于\"试试看吧",thisDate,-4);
+        doInsert("教程六","删除所有教程，开始你的立Flag之旅吧",thisDate,-5);
     }
 
 
     //插入默认往数据库里一些数据，引导用户使用
-    private void doInsert(String title,String content){
-
+    private void doInsert(String title,String content,Date date,int second){
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        calendar.add(Calendar.SECOND,second);
+        Date thisDate = calendar.getTime();
 
         try {
-            Date thisDate = new Date();
             SQLiteDatabase db = dbUtil.getWritableDatabase();
             String sql = "insert into flag(state,color,title,content,date) " +
-                    "values('未完成'," +
+                    "values('待完成'," +
                     "'#000000'," +
                     "'" + title.toString() + "'," +
                     "'" + content.toString() + "'," +
