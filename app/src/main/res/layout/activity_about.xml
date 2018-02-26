@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.yinyoupoet.flags.AboutActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_about"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:popupTheme="@style/ToolbarPopupTheme"
+        android:background="@color/toolbar_primary">
+
+    </android.support.v7.widget.Toolbar>
+
+    <ScrollView
+        android:layout_below="@id/toolbar_about"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#dac9a6">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/iv_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/flag1"
+                />
+
+            <ImageView
+                android:id="@+id/iv_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/flag_word"/>
+
+            <TextView
+                android:id="@+id/tv_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#CB4042"
+                android:textSize="20sp"
+                android:text="V1.0.0"
+                android:layout_gravity="center"
+                />
+
+            <TextView
+                android:id="@+id/tv_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#26453d"
+                android:textSize="16sp"
+                android:layout_gravity="center"
+                android:text="©吟游诗人"/>
+
+            <TextView
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:textColor="#376b6d"
+                android:text="这个APP的功能就像它的名称一样简单——立Flag。作为一枚每隔几天立一个Flag的佛系程序员来说，既不喜欢那些繁杂的日程管理软件，也不希望立的Flag每隔几天就忘了，遂制作了本APP。特此参与大家分享，后序可能会有更新。"/>
+
+            <TextView
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                android:text="欢迎大家进行反馈"/>
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1px"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:background="#69b0ac"
+                />
+
+            <TextView
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="30dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:textColor="#000000"
+                android:text="作者QQ"
+                android:layout_marginBottom="10dp"/>
+            <ImageView
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/qq"
+                android:layout_marginTop="20dp"/>
+
+            <TextView
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="30dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:textColor="#000000"
+                android:text="作者微信"
+                android:layout_marginBottom="10dp"/>
+            <ImageView
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/wechat"
+                android:layout_marginTop="20dp"/>
+
+            <TextView
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="30dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:textColor="#000000"
+                android:text="支持作者"
+                />
+
+            <ImageView
+                android:layout_marginTop="-30dp"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/alipay"/>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

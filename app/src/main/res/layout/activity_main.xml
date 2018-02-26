@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.yinyoupoet.flags.MainActivity"
+    android:background="#cb4042">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_main"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:popupTheme="@style/ToolbarPopupTheme"
+        android:background="@color/toolbar_primary">
+
+    </android.support.v7.widget.Toolbar>
+
+
+    <lib.homhomlib.design.SlidingLayout
+        android:layout_below="@id/toolbar_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:background_view="@layout/view_bg"
+        app:sliding_mode="top"
+        app:sliding_pointer_mode="more">
+
+        <ListView
+            android:id="@+id/lv_flags"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="@drawable/list_divider"
+            android:dividerHeight="0.5dip"
+            android:listSelector="@drawable/list_selector"
+            android:background="#ffffff"
+            >
+        </ListView>
+    </lib.homhomlib.design.SlidingLayout>
+
+
+
+
+
+    <ImageView
+        android:id="@+id/iv_add_flag"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="30dp"
+        android:layout_marginRight="30dp"
+        android:src="@drawable/add2"
+        />
+
+</RelativeLayout>

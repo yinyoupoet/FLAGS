@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.yinyoupoet.flags.CategoryActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_category"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:popupTheme="@style/ToolbarPopupTheme"
+        android:background="@color/toolbar_primary">
+
+    </android.support.v7.widget.Toolbar>
+
+    <ListView
+        android:layout_below="@id/toolbar_category"
+        android:id="@+id/lv_category"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="@drawable/list_divider"
+        android:dividerHeight="0.5dip"
+        android:listSelector="@drawable/list_selector"
+        android:background="#ffffff">
+
+    </ListView>
+
+
+
+</RelativeLayout>

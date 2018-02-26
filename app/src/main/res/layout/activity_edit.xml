@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.yinyoupoet.flags.AddFlagActivity"
+    android:background="#cb4042">
+
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_edit"
+        android:layout_width="match_parent"
+        app:popupTheme="@style/ToolbarPopupTheme"
+        android:layout_height="?attr/actionBarSize"
+        app:titleTextAppearance="@style/Toolbar.TitleText"
+        android:background="@color/toolbar_primary">
+    </android.support.v7.widget.Toolbar>
+
+    <EditText
+        android:id="@+id/et_edit_title"
+        android:layout_below="@id/toolbar_edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:hint="请输入标题"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:textColor="#fff"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        />
+
+
+    <ScrollView
+        android:id="@+id/sv_edit_view"
+        android:layout_below="@id/et_edit_title"
+        android:layout_above="@id/view_edit_1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="18dp"
+        android:layout_marginRight="18dp">
+
+        <EditText
+            android:background="@null"
+            android:id="@+id/et_edit_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="top"
+            android:textSize="16sp"
+            android:textColor="#fff"
+            android:hint="请输入内容"/>
+    </ScrollView>
+
+
+
+    <View
+        android:id="@+id/view_edit_1"
+        android:layout_width="match_parent"
+        android:layout_height="1dip"
+        android:background="#a8d8b9"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_above="@id/rl_edit_bottom"/>
+
+    <RelativeLayout
+        android:id="@+id/rl_edit_bottom"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:paddingBottom="8dp"
+        android:paddingTop="8dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        >
+
+        <ImageView
+            android:id="@+id/iv_edit_pic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/pic"
+            android:layout_alignParentLeft="true"/>
+
+        <TextView
+            android:id="@+id/tv_edit_state"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textColor="#ffffff"
+            android:text="待完成"
+            android:layout_alignParentRight="true"/>
+
+        <ImageView
+            android:id="@+id/iv_edit_share"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/share"
+            android:layout_alignParentRight="true"
+            android:visibility="gone"/>
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

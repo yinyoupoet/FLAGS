@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/rl_flag_root"
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tv_flag_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:textStyle="bold"
+        android:textColor="#111"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="6dp"
+        />
+
+    <TextView
+        android:layout_below="@id/tv_flag_title"
+        android:id="@+id/tv_flag_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:textColor="#999"
+        android:paddingRight="20dp"
+        android:paddingLeft="20dp"
+        android:paddingBottom="5dp"
+        />
+    <TextView
+        android:layout_below="@id/tv_flag_content"
+        android:id="@+id/tv_flag_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:textColor="#AAA"
+        android:paddingRight="20dp"
+        android:paddingLeft="20dp"
+        android:paddingBottom="5dp"
+        />
+</RelativeLayout>
