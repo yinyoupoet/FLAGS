@@ -1,11 +1,11 @@
 # FLAGS
 一款专门用于立Flag的安卓手机APP
-<img src="https://github.com/yinyoupoet/FLAGS/blob/master/DISPLAY/Screenshot_2018-02-26-11-46-43-713_com.yinyoupoet.png?raw=true"/>
+<img src="https://github.com/yinyoupoet/FLAGS/blob/master/DISPLAY/Screenshot_2018-02-26-20-43-40-867_com.yinyoupoet.png?raw=true"/>
 
 <hr>
 该软件使用java语言开发，如有bug，欢迎大家反馈或Pull，也欢迎大家fork。
 软件截图见https://github.com/yinyoupoet/FLAGS/tree/master/DISPLAY
-本软件即将上架酷安网，欢迎大家下载。
+本软件已上架酷安网，欢迎大家下载：<a href="https://www.coolapk.com/apk/178123">酷安网下载网址</a>
 
 
 
@@ -17,3 +17,12 @@ apk文件下载：https://github.com/yinyoupoet/FLAGS/blob/master/app/release/FL
 - flag完成度统计
 - flag分类显示
 
+# V1.0.1
+修复了若干BUG：
+1、修复了部分手机上图标显示异常的问题
+2、修复了引导显示顺序混乱的问题
+3、修复了顶部栏对于引导栏完成情况的统计错误问题
+4、精简了软件体积
+
+# V1.0.2
+修复在编辑页面点击返回按钮后保存延时的bug
