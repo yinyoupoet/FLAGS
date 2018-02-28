@@ -13,6 +13,7 @@ import android.util.Log;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.InputStream;
 
 /**
@@ -121,7 +122,7 @@ public class ImageUtils {
     }
 
     /**
-     * 根据路径获得突破并压缩返回bitmap用于显示
+     * 根据路径获得图片并压缩返回bitmap用于显示
      *
      * @return
      */
@@ -150,16 +151,16 @@ public class ImageUtils {
      * @param width
      *            view的宽度
      */
-//    public Bitmap getScaledBitmap(String filePath, int width) {
-//        BitmapFactory.Options options = new BitmapFactory.Options();
-//        options.inJustDecodeBounds = true;
-//        BitmapFactory.decodeFile(filePath, options);
-//        int sampleSize = options.outWidth > width ? options.outWidth / width
-//                + 1 : 1;
-//        options.inJustDecodeBounds = false;
-//        options.inSampleSize = sampleSize;
-//        return BitmapFactory.decodeFile(filePath, options);
-//    }
+ /*   public static Bitmap getScaledBitmap(String filePath, int width) {
+        BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inJustDecodeBounds = true;
+        BitmapFactory.decodeFile(filePath, options);
+        int sampleSize = options.outWidth > width ? options.outWidth / width
+                + 1 : 1;
+        options.inJustDecodeBounds = false;
+        options.inSampleSize = sampleSize;
+        return BitmapFactory.decodeFile(filePath, options);
+    }*/
 
     /**
      * 对图片进行按比例设置
@@ -396,5 +397,31 @@ public class ImageUtils {
         bitmap = compressImage(bitmap, 100);//质量压缩
         return bitmap;
     }
+
+
+   /* //自己做的压缩算法，有错
+    public static Bitmap yyptCompressBitmap(String path,double newWidth,double newHeight){
+        Bitmap bitmap = null;
+        try{
+            FileInputStream fis = new FileInputStream(path);
+            bitmap = BitmapFactory.decodeStream(fis);
+
+            float width = bitmap.getWidth();
+            float height = bitmap.getHeight();
+            Matrix matrix = new Matrix();
+            float scaleWidth = ((float) newWidth) / width;
+            float scaleHeight = ((float) newHeight) / height;
+            matrix.postScale(scaleWidth,scaleHeight);
+            Bitmap bt = Bitmap.createBitmap(bitmap,0,0,(int) width,(int) height,matrix,true);
+            return bt;
+
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return bitmap;
+    }*/
+
 
 }

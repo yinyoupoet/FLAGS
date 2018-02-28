@@ -10,6 +10,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
 import android.graphics.Color;
 import android.net.Uri;
 import android.opengl.Visibility;
@@ -27,6 +28,7 @@ import android.text.TextWatcher;
 import android.text.style.ImageSpan;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -41,6 +43,9 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -79,6 +84,7 @@ public class AddFlagActivity extends AppCompatActivity {
     View inflate;               //dialog的容器
     TextView continueBtn;       //dialog上的待完成按钮
     TextView complishBtn;       //dialog上的已完成按钮
+    ImageView share;            //分享按钮
 
     View hrView;                //最下方菜单栏的那个横线
     View bottomMenu;            //最下方菜单栏
@@ -112,6 +118,7 @@ public class AddFlagActivity extends AppCompatActivity {
 
         hrView = findViewById(R.id.view_edit_1);
         bottomMenu = findViewById(R.id.rl_edit_bottom);
+        share = findViewById(R.id.iv_edit_share);
 
         //初始化底部弹出框控件
         //填充对话框的布局
@@ -367,6 +374,20 @@ public class AddFlagActivity extends AppCompatActivity {
             }
         });
         //endregion
+
+        //region 分享按钮点击事件
+        share.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+
+                /*String fname = ScreenShootUtils.savePic(ScreenShootUtils.getBitmapByView(scrollView));
+                Toast.makeText(AddFlagActivity.this,fname,Toast.LENGTH_SHORT).show();
+                Log.d("YYPT_shotPIC", fname);*/
+            }
+        });
+        //endregion
     }
     //endregion
 
@@ -454,10 +475,11 @@ public class AddFlagActivity extends AppCompatActivity {
         String tagPath = "<img src=\""+path+"\"/>";//为图片路径加上<img>标签
         Bitmap bitmap = BitmapFactory.decodeFile(path);
         if(bitmap != null){
-            SpannableString ss = getBitmapMime(path,tagPath);
+            SpannableString ss = getBitmapMime(path, tagPath);
             insertPhotoToEditText(ss);
             content.append("\n");
             Log.d("YYPT_Insert", content.getText().toString());
+
         }else{
             Toast.makeText(AddFlagActivity.this,"插入失败，无读写存储权限，请到权限中心开启",Toast.LENGTH_LONG).show();
         }
@@ -484,10 +506,26 @@ public class AddFlagActivity extends AppCompatActivity {
         int height = ScreenUtils.getScreenHeight(AddFlagActivity.this);
 
 
+
+
+        Log.d("ScreenUtils", "高度:"+height+",宽度:"+width);
+
         Bitmap bitmap = ImageUtils.getSmallBitmap(path,width,480);
+
+        /*
+        //高:754，宽1008
+        BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inSampleSize = 4;
+        Bitmap bitmap = BitmapFactory.decodeFile(path,options);
+        */
+        Log.d("YYPT_IMG_COMPRESS", "高度："+bitmap.getHeight()+",宽度:"+bitmap.getWidth());
+
+
         ImageSpan imageSpan = new ImageSpan(this, bitmap);
         ss.setSpan(imageSpan, 0, tagPath.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         return ss;
+
+
     }
     //endregion
 
@@ -648,6 +686,7 @@ public class AddFlagActivity extends AppCompatActivity {
     //endregion
 
 
+    //region 生命周期结束后自动保存
     @Override
     protected void onStop() {
         super.onStop();
@@ -664,8 +703,33 @@ public class AddFlagActivity extends AppCompatActivity {
                 //只有当进行了修改了才更新数据库
                 editFlag();
             }
-
         }
         isChanged = false;
     }
+    //endregion
+
+    //region 点击返回退出时也会自动保存
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if(event.getKeyCode() == KeyEvent.KEYCODE_BACK){
+            //自动保存
+            if(flag.getId() == -1){
+                //这是新建的
+                if(isChanged){
+                    addFlag();
+                }
+
+            }else{
+                //这个flag是进行修改的
+                if(isChanged){
+                    //只有当进行了修改了才更新数据库
+                    editFlag();
+                }
+            }
+            isChanged = false;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
+    //endregion
 }
