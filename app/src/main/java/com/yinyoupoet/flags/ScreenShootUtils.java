@@ -27,13 +27,14 @@ public class ScreenShootUtils {
      * @return
      */
     public static Bitmap getBitmapByView(ScrollView scrollView) {
+        //scrollView.setBackground();
         int h = 0;
         Bitmap bitmap = null;
         // 获取scrollview实际高度
         for (int i = 0; i < scrollView.getChildCount(); i++) {
             h += scrollView.getChildAt(i).getHeight();
             scrollView.getChildAt(i).setBackgroundColor(
-                    Color.parseColor("#cb4042"));
+                    Color.parseColor("#fcfaf2"));
         }
         // 创建对应大小的bitmap
         bitmap = Bitmap.createBitmap(scrollView.getWidth(), h,

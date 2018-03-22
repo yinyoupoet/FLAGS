@@ -20,7 +20,8 @@
         </activity>
         <activity android:name=".AddFlagActivity" />
         <activity android:name=".CategoryActivity" />
-        <activity android:name=".AboutActivity"></activity>
+        <activity android:name=".AboutActivity" />
+        <activity android:name=".ShareActivity"></activity>
     </application>
 
 </manifest>

@@ -379,8 +379,10 @@ public class AddFlagActivity extends AppCompatActivity {
         share.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-
+                Intent intent = new Intent(AddFlagActivity.this,ShareActivity.class);
+                intent.putExtra("title",title.getText().toString());
+                intent.putExtra("content",content.getText().toString());
+                startActivity(intent);
 
                 /*String fname = ScreenShootUtils.savePic(ScreenShootUtils.getBitmapByView(scrollView));
                 Toast.makeText(AddFlagActivity.this,fname,Toast.LENGTH_SHORT).show();

@@ -90,7 +90,7 @@
             android:textSize="20sp"
             android:textColor="#ffffff"
             android:text="待完成"
-            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"
             android:visibility="visible"/>
 
         <ImageView
@@ -99,7 +99,7 @@
             android:layout_height="wrap_content"
             android:src="@drawable/share"
             android:layout_alignParentRight="true"
-            android:visibility="gone"/>
+            android:visibility="visible"/>
 
     </RelativeLayout>
 
