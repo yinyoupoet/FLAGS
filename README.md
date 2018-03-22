@@ -26,3 +26,6 @@ apk文件下载：https://github.com/yinyoupoet/FLAGS/blob/master/app/release/FL
 
 # V1.0.2
 修复在编辑页面点击返回按钮后保存延时的bug
+
+# V1.1.0
+新增以图片形式对FLAG进行分享的功能
