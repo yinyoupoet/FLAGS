@@ -12,6 +12,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.opengl.Visibility;
 import android.provider.MediaStore;
@@ -423,8 +424,9 @@ public class AddFlagActivity extends AppCompatActivity {
     //region 调用图库
     private void callGallery(){
 
-        int permission = ActivityCompat.checkSelfPermission(AddFlagActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE);
-        if(permission != PackageManager.PERMISSION_GRANTED){
+        int permission_WRITE = ActivityCompat.checkSelfPermission(AddFlagActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE);
+        int permission_READ = ActivityCompat.checkSelfPermission(AddFlagActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE);
+        if(permission_WRITE != PackageManager.PERMISSION_GRANTED || permission_READ != PackageManager.PERMISSION_GRANTED){
             ActivityCompat.requestPermissions(AddFlagActivity.this,PERMISSIONS_STORAGE,REQUEST_EXTERNAL_STORAGE);
         }
 
@@ -433,7 +435,7 @@ public class AddFlagActivity extends AppCompatActivity {
         //intent.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI,"image/*");  //相片类型
         //startActivityForResult(intent,1);
 
-        Intent getAlbum = new Intent(Intent.ACTION_GET_CONTENT);
+        Intent getAlbum = new Intent(Intent.ACTION_PICK);
         getAlbum.setType("image/*");
         startActivityForResult(getAlbum,IMAGE_CODE);
 
@@ -462,8 +464,8 @@ public class AddFlagActivity extends AppCompatActivity {
                 cursor.moveToFirst();
                 // 最后根据索引值获取图片路径
                 String path = cursor.getString(column_index);
+                //Log.e("insertIMG", "onActivityResult: ");
                 insertImg(path);
-                //Toast.makeText(AddFlagActivity.this,path,Toast.LENGTH_SHORT).show();
             }catch (Exception e){
                 e.printStackTrace();
                 Toast.makeText(AddFlagActivity.this,"图片插入失败",Toast.LENGTH_SHORT).show();
@@ -473,16 +475,17 @@ public class AddFlagActivity extends AppCompatActivity {
 
     //region 插入图片
     private void insertImg(String path){
-
+        //Log.e("插入图片", "insertImg:" + path);
         String tagPath = "<img src=\""+path+"\"/>";//为图片路径加上<img>标签
         Bitmap bitmap = BitmapFactory.decodeFile(path);
         if(bitmap != null){
             SpannableString ss = getBitmapMime(path, tagPath);
             insertPhotoToEditText(ss);
             content.append("\n");
-            Log.d("YYPT_Insert", content.getText().toString());
+            //Log.e("YYPT_Insert", content.getText().toString());
 
         }else{
+            //Log.d("YYPT_Insert", "tagPath: "+tagPath);
             Toast.makeText(AddFlagActivity.this,"插入失败，无读写存储权限，请到权限中心开启",Toast.LENGTH_LONG).show();
         }
     }
@@ -507,12 +510,15 @@ public class AddFlagActivity extends AppCompatActivity {
         int width = ScreenUtils.getScreenWidth(AddFlagActivity.this);
         int height = ScreenUtils.getScreenHeight(AddFlagActivity.this);
 
+        Log.d("YYPT_IMG_SCREEN", "高度:"+height+",宽度:"+width);
 
+        BitmapFactory.Options options = new BitmapFactory.Options();
+        Bitmap bitmap = BitmapFactory.decodeFile(path, options);
+        Log.d("YYPT_IMG_IMG", "高度:"+bitmap.getHeight()+",宽度:"+bitmap.getWidth());
+        bitmap = ImageUtils.zoomImage(bitmap,(width-32)*0.8,bitmap.getHeight()/(bitmap.getWidth()/((width-32)*0.8)));
 
+        //Bitmap bitmap = ImageUtils.getSmallBitmap(path,600,480);
 
-        Log.d("ScreenUtils", "高度:"+height+",宽度:"+width);
-
-        Bitmap bitmap = ImageUtils.getSmallBitmap(path,width,480);
 
         /*
         //高:754，宽1008
@@ -609,7 +615,9 @@ public class AddFlagActivity extends AppCompatActivity {
             int height = ScreenUtils.getScreenHeight(AddFlagActivity.this);
 
             try {
-                Bitmap bitmap = ImageUtils.getSmallBitmap(path, width, 480);
+                BitmapFactory.Options options = new BitmapFactory.Options();
+                Bitmap bitmap = BitmapFactory.decodeFile(path, options);
+                bitmap = ImageUtils.zoomImage(bitmap,(width-32)*0.8,bitmap.getHeight()/(bitmap.getWidth()/((width-32)*0.8)));
                 ImageSpan imageSpan = new ImageSpan(this, bitmap);
                 spannable.setSpan(imageSpan, start, end, Spannable.SPAN_INCLUSIVE_EXCLUSIVE);
             }catch (Exception e){

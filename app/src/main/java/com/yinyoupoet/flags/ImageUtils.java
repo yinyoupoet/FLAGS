@@ -138,7 +138,7 @@ public class ImageUtils {
         options.inJustDecodeBounds = false;
 
         Bitmap bitmap = BitmapFactory.decodeFile(filePath, options);
-        Bitmap newBitmap = compressImage(bitmap, 500);
+        Bitmap newBitmap = compressImage(bitmap, 600);
         if (bitmap != null){
             bitmap.recycle();
         }
