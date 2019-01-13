@@ -29,3 +29,7 @@ apk文件下载：https://github.com/yinyoupoet/FLAGS/blob/master/app/release/FL
 
 # V1.1.0
 新增以图片形式对FLAG进行分享的功能
+
+# V1.2.1
+1、修复android高版本下插入图片失败的问题；
+2、修复插入高像素图片时显示异常的情况。
