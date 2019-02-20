@@ -6,11 +6,12 @@
 该软件使用java语言开发，如有bug，欢迎大家反馈或Pull，也欢迎大家fork。
 软件截图见https://github.com/yinyoupoet/FLAGS/tree/master/DISPLAY
 本软件已上架酷安网，欢迎大家下载：<a href="https://www.coolapk.com/apk/178123">酷安网下载网址</a>
+关键技术说明可见我的博客：https://blog.csdn.net/qq_32623363/article/details/79356484
 
 
 
 # V1.0
-apk文件下载：https://github.com/yinyoupoet/FLAGS/blob/master/app/release/FLAGS.apk
+apk文件下载：https://github.com/yinyoupoet/FLAGS/blob/master/app/release/
 
 本软件目前功能有：
 - 编写flag与本地存储（可插入图片）
