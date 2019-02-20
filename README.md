@@ -3,10 +3,10 @@
 <img src="https://github.com/yinyoupoet/FLAGS/blob/master/DISPLAY/Screenshot_2018-02-26-20-43-40-867_com.yinyoupoet.png?raw=true"/>
 
 <hr>
-该软件使用java语言开发，如有bug，欢迎大家反馈或Pull，也欢迎大家fork。
-软件截图见https://github.com/yinyoupoet/FLAGS/tree/master/DISPLAY
+该软件使用java语言开发，如有bug，欢迎大家反馈或Pull，也欢迎大家fork。<br>
+软件截图见https://github.com/yinyoupoet/FLAGS/tree/master/DISPLAY<br>
 本软件已上架酷安网，欢迎大家下载：<a href="https://www.coolapk.com/apk/178123">酷安网下载网址</a><br>
-关键技术说明可见我的博客：https://blog.csdn.net/qq_32623363/article/details/79356484
+关键技术说明可见我的博客：https://blog.csdn.net/qq_32623363/article/details/79356484<br>
 
 
 
